@@ -21,7 +21,7 @@ export const  Provider = (props) => {
         localStorage.setItem("email", loginData.email);
         nav("/contacts");
         window.alert("Login Successful");
-        document.location.reload();
+        //document.location.reload();
         setEmail(loginData.email);
       })
       .catch((err) => {
