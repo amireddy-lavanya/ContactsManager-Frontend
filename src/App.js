@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Provider>
           <Routes>
-            <Route path="/" element={token ? <ContactPage/> : <Login />} />
+            <Route path="/" element={<Login />} />
             <Route path="/register" element={token ? <ContactPage/> : <Register /> } />
             <Route path="/contacts" element={token ? <ContactPage /> : <Navigate replace to={"/"} />} />
             <Route path="*" element={token ? <ContactPage/> : <h1>Page Not found</h1>} />
