@@ -1,0 +1,29 @@
+import React from 'react';
+import './index.css';
+import { Provider } from './components/axios/axioscontext';
+import Login from"./components/Pages/Login";
+import Register from "./components/Pages/Register";
+import { Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ContactPage from './components/ContactPages/ContactPage';
+function App() {
+  const token=localStorage.getItem("token")
+  console.log(token)
+  return (
+    <div>
+      <BrowserRouter>
+        <Provider>
+          <Routes>
+            <Route path="/" element={token ? <ContactPage/> : <Login />} />
+            <Route path="/register" element={token ? <ContactPage/> : <Register /> } />
+            <Route path="/contacts" element={token ? <ContactPage /> : <Navigate replace to={"/"} />} />
+            <Route path="*" element={token ? <ContactPage/> : <h1>Page Not found</h1>} />
+          </Routes>
+        </Provider>
+    </BrowserRouter>
+      
+    </div>
+  );
+}
+
+export default App;
